@@ -1,0 +1,12 @@
+- name: LinkedIn
+  link: https://www.linkedin.com/in/hari-mani/
+  icon: assets/images/linkedin.svg
+- name: GitHub
+  link: https://github.com/The-East-Wind
+  icon: assets/images/github.svg
+- name: StackOverflow
+  link: https://stackoverflow.com/users/13067012/hari-mani 
+  icon: assets/images/stackoverflow.svg
+- name: Pluralsight
+  link: https://app.pluralsight.com/profile/hari-mani#0
+  icon: assets/images/pluralsight.svg
