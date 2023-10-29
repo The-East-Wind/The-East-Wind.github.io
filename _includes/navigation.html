@@ -1,0 +1,5 @@
+<nav class="navbar primary">
+    {% for item in site.data.navigation %}
+        <a class="item {% if page.url == item.link %}active{% endif %}" href="{{ item.link }}">{{ item.name }}</a>
+    {% endfor %}
+</nav>
