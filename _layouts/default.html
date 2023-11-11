@@ -10,6 +10,9 @@
     />
     {% feed_meta %}
     {% seo %}
+    {% if jekyll.environment == "production" %}
+      <script src='//fm-staging-us-app-cdnjs.s3.amazonaws.com/8182108/6725757.js'></script>
+    {% endif %}
   </head>
   <body>
     <div class="container">
