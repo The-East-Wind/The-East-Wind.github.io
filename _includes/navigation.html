@@ -1,5 +1,11 @@
 <nav class="navbar primary">
+  <section>
     {% for item in site.data.navigation %}
-        <a class="item {% if page.url == item.link %}active{% endif %}" href="{{ item.link }}">{{ item.name }}</a>
+    <a
+      class="item {% if page.url == item.link %}active{% endif %}"
+      href="{{ item.link }}"
+      >{{ item.name }}</a
+    >
     {% endfor %}
+  </section>
 </nav>

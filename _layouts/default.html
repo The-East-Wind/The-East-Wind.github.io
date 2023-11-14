@@ -11,12 +11,12 @@
     {% feed_meta %}
     {% seo %}
     {% if jekyll.environment == "production" %}
-      <script src='https://cdn.freshmarketer.com.au/20726820/198838.js'></script>
+      <script src="https://cdn.freshmarketer.com.au/20726820/198838.js"></script>
     {% endif %}
   </head>
   <body>
+    {% include navigation.html %}
     <div class="container">
-      {% include navigation.html %}
       <main id="content" class="content" role="main">{{ content }}</main>
     </div>
   </body>
