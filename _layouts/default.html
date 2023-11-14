@@ -15,9 +15,14 @@
     {% endif %}
   </head>
   <body>
-    {% include navigation.html %}
+    <div class="container">
+      {% include navigation.html %}
+    </div>
     <div class="container">
       <main id="content" class="content" role="main">{{ content }}</main>
+    </div>
+    <div class="container footer">
+      {% include footer.html %}
     </div>
   </body>
 </html>
