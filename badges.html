@@ -1,0 +1,66 @@
+---
+layout: default
+title: Badges
+permalink: /badges
+---
+
+<section id="badges" class="section">
+  {% assign backpack = site.data.backpack %}
+  {% for badge in backpack.badges %}
+    <blockquote class="badgr-badge">
+    <a href="{{ backpack.url }}/{{ badge.id }}"
+      ><img
+        width="120px"
+        height="120px"
+        src="{{ backpack.url }}/{{ badge.id }}/image"
+    /></a>
+    <p
+      class="badgr-badge-name"
+      style="
+        hyphens: auto;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.25;
+        letter-spacing: normal;
+        text-align: center;
+      "
+    >
+      {{ badge.name }}
+    </p>
+    <p
+      class="badgr-badge-date"
+      style="
+        margin: 0;
+        font-size: 12px;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.67;
+        letter-spacing: normal;
+        text-align: center;
+      "
+    >
+      <strong
+        style="
+          font-size: 12px;
+          font-weight: bold;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.67;
+          letter-spacing: normal;
+          text-align: center;
+        "
+        >Awarded: </strong
+      >{{ badge.awarded_on }}
+    </p>
+    <script
+      async="async"
+      src="https://badgr.com/assets/widgets.bundle.js"
+    ></script>
+    </blockquote>
+  {% endfor %}
+</section>
