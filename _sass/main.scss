@@ -47,14 +47,16 @@ button {
     text-align: justify;
     max-width: 720px;
     margin: 0 auto;
+    padding: 0 30px;
 }
 
 .content a {
     color: var(--link-color);
 }
 
-.content .section {
+.section {
     width: 100%;
+    padding: 0 16px;
 }
 
 .content footer {
@@ -62,8 +64,9 @@ button {
     bottom: 0;
 }
 
-.social-container {
-    padding: 2px;
+#social {
+    display: flex;
+    justify-content: center;
 }
 
 .social-item {

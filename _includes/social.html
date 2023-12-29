@@ -1,9 +1,7 @@
-<div class="social-container"> 
-    {% for item in site.data.social %}
-    <span class="social-item">
-        <a target="_blank" rel="noreferrer" rel="noopener" href="{{ item.link }}">
-            <img class="icon" height="32" width="32" src="{{ item.icon }}">
-        </a>
-    <span>
-    {% endfor %}
-</div>
+{% for item in site.data.social %}
+<span class="social-item">
+  <a target="_blank" rel="noreferrer" rel="noopener" href="{{ item.link }}">
+    <img class="icon" height="32" width="32" src="{{ item.icon }}" />
+  </a>
+</span>
+{% endfor %}
