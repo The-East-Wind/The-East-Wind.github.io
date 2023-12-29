@@ -1,60 +1,61 @@
-const themeMap = {
-    "dark": {
-        "--background-color": "#222222",
-        "--color": "#ffffff",
-        "--shadow-color": "#ffffff44",
-        "icon": "/assets/images/dark-mode.svg"
+const themeSettings = {
+  dark: {
+    colors: {
+      "--background-color": "#131418",
+      "--color": "#ffffff",
+      "--shadow-color": "#ffffff44",
+      "--link-color": "#ff5277",
     },
-    "light": {
-        "--background-color": "#ffffff",
-        "--color": "#000000",
-        "--shadow-color": "#00000088",
-        "icon": "/assets/images/light-mode.svg"
+    icon: "/assets/images/dark-mode.svg",
+  },
+  light: {
+    colors: {
+      "--background-color": "#ffffff",
+      "--color": "#000000",
+      "--shadow-color": "#00000088",
+      "--link-color": "#3232a8",
+    },
+    icon: "/assets/images/light-mode.svg",
+  },
+};
+
+function getCurrentTheme() {
+  return localStorage.getItem("theme") || "light";
+}
+
+function setColors(settings) {
+  const root = document.querySelector(":root");
+  for (const key in settings.colors) {
+    root.style.setProperty(key, settings.colors[key]);
+  }
+}
+
+function setLamp(settings) {
+  const element = document.getElementById("theme-toggle");
+  element.setAttribute("src", settings.icon);
+}
+
+function initTheme(theme) {
+  const settings = themeSettings[theme];
+  setColors(settings);
+  setLamp(settings);
+  initSocialMediaIcons(theme);
+}
+
+function initSocialMediaIcons(theme) {
+  const icons = document.querySelectorAll(".social-item .icon");
+  for (const icon of icons) {
+    if (theme === "dark") {
+      icon.classList.add("dark");
+    } else if (theme === "light") {
+      icon.classList.remove("dark");
     }
+  }
 }
 
-const colorToogleMap = {
-    "#ffffff": "#000000",
-    "#000000": "#ffffff",
-    "#00000088": "#ffffffaa",
-    "#ffffffaa": "#00000088"
-};
-
-const iconToogleMap = {
-    "/assets/images/light-mode.svg": "/assets/images/dark-mode.svg",
-    "/assets/images/dark-mode.svg": "/assets/images/light-mode.svg"
-};
-
-function handleThemeToogle() {
-    toogleColors();
-    toogleIcon();
-    invertSocialMediaIcons();
-}
-
-function toogleColors() {
-    const root = document.querySelector(":root");
-    const styles = getComputedStyle(root);
-    const backgroundColor = styles.getPropertyValue("--background-color");
-    const color = styles.getPropertyValue("--color");
-    const shadowColor = styles.getPropertyValue("--shadow-color");
-    root.style.setProperty("--background-color", colorToogleMap[backgroundColor]);
-    root.style.setProperty("--color", colorToogleMap[color]);
-    root.style.setProperty("--shadow-color", colorToogleMap[shadowColor]);
-}
-
-function toogleIcon() {
-    const element = document.getElementById("theme-toggle");
-    const icon = element.getAttribute("src");
-    element.setAttribute("src", iconToogleMap[icon]);
-}
-
-function invertSocialMediaIcons() {
-    const icons = document.querySelectorAll(".social-item .icon");
-    icons.forEach((icon) => {
-        if(icon.classList.contains("dark")) {
-            icon.classList.remove("dark");
-        } else {
-            icon.classList.add("dark");
-        }
-    });
+function switchTheme() {
+  const currentTheme = getCurrentTheme();
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+  initTheme(newTheme);
+  localStorage.setItem("theme", newTheme);
 }

@@ -1,0 +1,9 @@
+- id: 0
+  name:  Configure and run a Zookeeper server
+  status: todo
+- id: 1
+  name: Configure and run a Zookeeper ensemble
+  status: todo
+- id: 2
+  name: Configure and run a Zookeeper ensemble with observer nodes
+  status: todo

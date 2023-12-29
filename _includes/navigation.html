@@ -1,5 +1,8 @@
 <nav class="primary">
   <section>
+    {% include theme-toggle-switch.html %}
+  </section>
+  <section>
     {% for item in site.data.navigation %}
     <a
       class="item {% if page.url == item.link %}active{% endif %}"
@@ -7,8 +10,5 @@
       >{{ item.name }}</a
     >
     {% endfor %}
-  </section>
-  <section>
-    {% include theme-toggle-switch.html %}
   </section>
 </nav>

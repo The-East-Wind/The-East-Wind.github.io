@@ -1,6 +1,6 @@
-- name: Home
+- name: about
   link: /
-- name: Todo
+- name: todo
   link: /todo
-- name: Badges
+- name: badges
   link: /badges

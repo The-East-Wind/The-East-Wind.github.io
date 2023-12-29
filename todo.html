@@ -1,0 +1,18 @@
+---
+layout: default
+title: TODO
+permalink: /todo
+---
+
+<header class="header section">
+  <h1>TODO</h1>
+  <h2>A list of tasks that I wish to complete</h2>
+</header>
+<section id="todo" class="section" markdown="1">
+  {% for todo in site.data.todo %}
+    <p>
+      <input type="checkbox" id="{{ todo.id }}" name="{{ todo.id }}">
+      <label for="{{ todo.id }}">{{ todo.name }}</label>
+    </p>
+  {% endfor %}
+</section>

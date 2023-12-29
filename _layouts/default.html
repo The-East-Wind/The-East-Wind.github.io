@@ -5,25 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ page.title }}</title>
     <link
+      rel="prefetch"
+      as="stylesheet"
+      href="{{ '/assets/css/styles.css' | relative_url }}"
+    />
+    <link
       rel="stylesheet"
       href="{{ '/assets/css/styles.css' | relative_url }}"
     />
-    {% feed_meta %}
-    {% seo %}
+    {% feed_meta %} 
+    {% seo %} 
     {% if jekyll.environment == "production" %}
       <script src="https://cdn.freshmarketer.com.au/20726820/198838.js"></script>
     {% endif %}
+    <link
+      rel="prefetch"
+      as="script"
+      href="{{ '/assets/js/theme.js' | relative_url }}"
+    />
     <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
   </head>
   <body>
-    <div class="container">
-      {% include navigation.html %}
-    </div>
+    <div class="container">{% include navigation.html %}</div>
     <div class="container">
       <main id="content" class="content" role="main">{{ content }}</main>
     </div>
-    <div class="container footer">
-      {% include footer.html %}
-    </div>
+    <div class="container footer">{% include footer.html %}</div>
+    <script>
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", () =>
+          initTheme(getCurrentTheme())
+        );
+      } else {
+        initTheme(getCurrentTheme());
+      }
+    </script>
   </body>
 </html>
